@@ -12,7 +12,7 @@ spec:
       values: |
         environment: {{ .Values.environment | required "Missing .Values.environemnt" }}
     path: clusters/app-of-apps/
-    repoURL: git@github.com:sector2000/test-argo.git
+    repoURL: https://github.com/sector2000/test-argo.git
     targetRevision: HEAD
   syncPolicy: {}
 
