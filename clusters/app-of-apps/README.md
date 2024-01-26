@@ -5,6 +5,6 @@
 
 Run:
 
-```
-helm template . --set cluster_name=<cluster name> --show-only templates/applicationset.yaml | oc apply -f-
+```bash
+helm template . --set environment=test --show-only templates/app-of-apps.yaml | oc apply -f -
 ```
