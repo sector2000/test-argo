@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   source:
     targetRevision: HEAD
-    repoURL: https://github.com/sector2000/test-app.git
-    path: .
+    repoURL: https://github.com/sector2000/test-argo.git
+    path: infra/test-app
     helm:
       valueFiles:
         - values-{{ .Values.environment | required "Missing .Values.environemnt" }}.yaml
