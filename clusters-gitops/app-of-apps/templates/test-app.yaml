@@ -10,7 +10,7 @@ spec:
   source:
     targetRevision: HEAD
     repoURL: https://github.com/sector2000/test-argo.git
-    path: cluster-gitops/infra/test-app
+    path: clusters-gitops/infra/test-app
     helm:
       valueFiles:
         - values-{{ .Values.environment | required "Missing .Values.environemnt" }}.yaml
