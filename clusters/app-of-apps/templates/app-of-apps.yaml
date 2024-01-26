@@ -14,5 +14,3 @@ spec:
     path: clusters/app-of-apps/
     repoURL: https://github.com/sector2000/test-argo.git
     targetRevision: HEAD
-  syncPolicy: {}
-

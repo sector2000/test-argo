@@ -14,5 +14,3 @@ spec:
     helm:
       valueFiles:
         - values-{{ .Values.environment | required "Missing .Values.environemnt" }}.yaml
-  syncPolicy: {}
-
