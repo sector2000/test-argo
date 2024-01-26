@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-app
+  namespace: openshift-gitops
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    targetRevision: HEAD
+    repoURL: git@github.com:sector2000/test-app.git
+    path: .
+    helm:
+      valueFiles:
+        - values-{{ .Values.environment | required "Missing .Values.environemnt" }}.yaml
+  syncPolicy: {}
+
