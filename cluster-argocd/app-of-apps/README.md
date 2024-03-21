@@ -6,5 +6,5 @@
 Run:
 
 ```bash
-helm template . --set environment=test --show-only templates/app-of-apps.yaml | oc apply -f -
+helm template . -f values-all.yaml -f values-<cluster name> --show-only templates/app-of-apps.yaml | oc apply -f -
 ```

@@ -13,4 +13,7 @@ spec:
     path: cluster-argocd/test-app
     helm:
       valueFiles:
-        - values-{{ .Values.environment | required "Missing .Values.environemnt" }}.yaml
+        - values-all.yaml
+        - values-{{ .Values.cluster_name }}.yaml
+      values: |
+        {{- toYaml .Values | nindent 8 }}
