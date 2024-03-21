@@ -4,4 +4,5 @@ metadata:
   name: config
   namespace: test-app
 data:
-  var1: value1
+  cluster_name: {{ .Values.cluster_name }}
+  test: {{ .Values.casa.panda }}
