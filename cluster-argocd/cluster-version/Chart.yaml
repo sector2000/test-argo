@@ -1,0 +1,4 @@
+apiVersion: v2
+description: Cluster Version Application
+name: cluster-version
+version: 1.0.0

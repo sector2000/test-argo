@@ -1,0 +1,11 @@
+apiVersion: config.openshift.io/v1
+kind: ClusterVersion
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=False    # No validation since clusterID is required
+  name: version
+spec:
+  channel: {{ .Values.channel }}
+  desiredUpdate:
+    image: {{ .Values.release_image }}
+    version: {{ .Values.openshift_version }}
