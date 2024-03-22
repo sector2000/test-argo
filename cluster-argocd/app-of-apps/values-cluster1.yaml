@@ -1,1 +1,5 @@
 cluster_name: cluster1
+
+enabled_apps:
+- test-app
+- cluster-version

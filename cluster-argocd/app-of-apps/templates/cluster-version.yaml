@@ -1,8 +1,8 @@
-{{- if has "test-app" .Values.enabled_apps }}
+{{- if has "cluster-version" .Values.enabled_apps }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-app
+  name: cluster-version
   namespace: openshift-gitops
 spec:
   project: default
@@ -11,11 +11,10 @@ spec:
   source:
     targetRevision: HEAD
     repoURL: https://github.com/sector2000/test-argo.git
-    path: cluster-argocd/test-app
+    path: cluster-argocd/cluster-version
     helm:
       valueFiles:
-        - values-all.yaml
-        - values-{{ .Values.cluster_name }}.yaml
+        - values.yaml
       values: |
         {{- toYaml .Values | nindent 8 }}
 {{- end }}
