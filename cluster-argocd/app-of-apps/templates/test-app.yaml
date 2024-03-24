@@ -13,11 +13,10 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-      - $app_of_apps/values-all.yaml
-      - $app_of_apps/values-{{ .Values.cluster_name }}.yaml
+      - $app_of_apps/cluster-argocd/app-of-apps/values-all.yaml
+      - $app_of_apps/cluster-argocd/app-of-apps/values-{{ .Values.cluster_name }}.yaml
       - values-all.yaml
       - values-{{ .Values.cluster_name }}.yaml
   - ref: app_of_apps
     repoURL: https://github.com/sector2000/test-argo.git
-    path: cluster-argocd/app-of-apps
     targetRevision: HEAD
