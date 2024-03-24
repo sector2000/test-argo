@@ -19,5 +19,5 @@ spec:
       - values-{{ .Values.cluster_name }}.yaml
   - ref: app_of_apps
     repoURL: https://github.com/sector2000/test-argo.git
-    path: .
+    path: cluster-argocd/app-of-apps
     targetRevision: HEAD
