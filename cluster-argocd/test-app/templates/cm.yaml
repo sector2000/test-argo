@@ -5,4 +5,3 @@ metadata:
   namespace: test-app
 data:
   cluster_name: {{ .Values.cluster_name }}
-  test: {{ .Values.casa.panda }}

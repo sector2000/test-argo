@@ -1,4 +1,3 @@
-{{- if has "cluster-version" .Values.enabled_apps }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,13 +7,15 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-  source:
-    targetRevision: HEAD
-    repoURL: https://github.com/sector2000/test-argo.git
-    path: cluster-argocd/cluster-version
-    helm:
+  sources:
+  - helm:
+      repoURL: https://github.com/sector2000/test-argo.git
+      path: cluster-argocd/cluster-version
+      targetRevision: HEAD
       valueFiles:
-        - values.yaml
-      values: |
-        {{- toYaml .Values | nindent 8 }}
-{{- end }}
+      - $app_of_apps/values-all.yaml
+      - $app_of_apps/values-{{ .Values.cluster_name }}.yaml
+      - values.yaml
+  - ref: app_of_apps
+    repoURL: https://github.com/sector2000/test-argo.git
+    targetRevision: HEAD
